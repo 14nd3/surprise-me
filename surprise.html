@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>LOVE ME NOW!!!</title>
+        <style>
+            body {
+                background: pink;
+                font-family: "Comic Sans MS", cursive, sans-serif;
+                text-align: center;
+                padding: 50px;
+            }
+            h1 {
+                color: red;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 18px;
+                border: none;
+                border-radius: 8px;
+                background: #ff4d6d;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            button:hover {
+                background: #ff1a3c;
+            }
+            #message {
+                display: none;
+                margin-top: 20px;
+                font-size: 20px;
+                color: purple;
+                animation: fadeIn 1s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .heart {
+                position: absolute;
+                color: red;
+                animation: float 3s linear infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0) scale(1); opacity: 1; }
+                100% { transform: translateY(-400px) scale(1.5); opacity: 0; }
+            }
+        </style>
+        </head>
+        <body>
+            <h1>Show me Love Buba :<</h1>
+            <p>LOVE ME NOW :<</p>
+            <button onclick="showLove()">Love me :)</button>
+            <button onclick="showAngry()">HATE ME :(</button>
+            <div id="message">YASSSSSS</div>
+            <script>
+                function showLove() {
+                   const msg = document.getElementById("message");
+                     msg.style.display = "block";
+                     msg.innerHTML = "YESSS YOU LOVE ME MWAHHH";
+                     createHearts("❤️");
+                }
+                function showAngry() {
+                    const msg = document.getElementById("message");
+                    msg.style.display = "block";
+                    msg.innerHTML = "NOOOO YOU HATE ME :(";
+                    createAngryFaces("😡");
+                }
+                function createHearts() {
+                    for (let i = 0; i <10; i++) {
+                        let heart = document.createElement("div");
+                    heart.innerHTML = "❤️";
+                    heart.className = "heart";
+                    heart.style.left = Math.random() * window.innerWidth + "px";
+                    heart.style.top = window.innerHeight + "px";
+                    document.body.appendChild(heart);
+                    setTimeout(() => { heart.remove(); }, 4000);
+                    }
+                }
+                function createAngryFaces() {
+                    for (let i = 0; i <10; i++) {
+                        let angryFace = document.createElement("div");
+                    angryFace.innerHTML = "😡";
+                    angryFace.className = "heart";
+                    angryFace.style.left = Math.random() * window.innerWidth + "px";
+                    angryFace.style.top = window.innerHeight + "px";
+                    document.body.appendChild(angryFace);
+                    setTimeout(() => { angryFace.remove(); }, 4000);
+                    }
+                }
+            </script>
+        </body>
+        </html>
